@@ -69,13 +69,15 @@ socket.on("host:lobbyState", (state) => {
       : p.connected
       ? "Active"
       : "Disconnected";
-    return `<span>${p.name}</span><span class="small">${status}</span>`;
+    const statusClass = p.eliminated ? "eliminated" : p.connected ? "active" : "disconnected";
+    return `<span>${p.name}</span><span class="host-pill ${statusClass}">${status}</span>`;
   });
   renderList(playersEl, playerRows, "No players yet.");
 
   const matchRows = state.matches.map((m) => {
     const result = m.completed ? `Winner: ${m.winner}` : "Playing";
-    return `<span>${m.p1} (${m.score.p1}) vs ${m.p2} (${m.score.p2})</span><span class="small">${result}</span>`;
+    const resultClass = m.completed ? "winner" : "playing";
+    return `<span>${m.p1} (${m.score.p1}) vs ${m.p2} (${m.score.p2})</span><span class="host-pill ${resultClass}">${result}</span>`;
   });
   renderList(matchesEl, matchRows, "No matches yet.");
 });

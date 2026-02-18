@@ -24,6 +24,7 @@ let joinedName = "";
 let currentMatchId = "";
 let vsTimeout = null;
 let battleTimeout = null;
+const hiddenMoveImage = "/assets/blank.svg";
 
 function moveImage(move) {
   if (move === "paper") return "/assets/paper.svg";
@@ -73,8 +74,15 @@ function showBattleAnimation(yourMove, opponentMove) {
   }
 
   battleTimeout = setTimeout(() => {
-    battleAnimEl.className = "battle-anim";
+    resetBattleStage();
   }, 1300);
+}
+
+function resetBattleStage() {
+  battleAnimEl.className = "battle-anim";
+  battleYouImgEl.src = hiddenMoveImage;
+  battleOppImgEl.src = hiddenMoveImage;
+  battleEffectEl.textContent = "FIGHT";
 }
 
 function setMoveEnabled(enabled) {
@@ -95,6 +103,7 @@ function showVsIntro(opponentName) {
 }
 
 setMoveEnabled(false);
+resetBattleStage();
 
 joinBtn.addEventListener("click", () => {
   const name = nameInput.value.trim();
@@ -135,7 +144,7 @@ socket.on("player:status", (payload) => {
     setMoveEnabled(false);
     opponentEl.textContent = "Opponent: -";
     scoreEl.textContent = "Score: -";
-    battleAnimEl.className = "battle-anim";
+    resetBattleStage();
     return;
   }
 
@@ -145,7 +154,7 @@ socket.on("player:status", (payload) => {
     setMoveEnabled(false);
     opponentEl.textContent = "Opponent: -";
     scoreEl.textContent = "Score: -";
-    battleAnimEl.className = "battle-anim";
+    resetBattleStage();
     return;
   }
 
@@ -155,7 +164,7 @@ socket.on("player:status", (payload) => {
     setMoveEnabled(false);
     opponentEl.textContent = "Opponent: -";
     scoreEl.textContent = "Score: -";
-    battleAnimEl.className = "battle-anim";
+    resetBattleStage();
     return;
   }
 
