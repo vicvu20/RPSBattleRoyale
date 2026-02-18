@@ -6,11 +6,26 @@
     <title>Play | RPS Royale</title>
     <link rel="stylesheet" href="/styles.css" />
   </head>
-  <body>
-    <main>
-      <h1>Player Screen</h1>
+  <body class="play-body">
+    <div id="vsIntro" class="vs-intro" aria-hidden="true">
+      <div class="vs-panel left">
+        <p class="small">Challenger</p>
+        <h2 id="vsYouName">You</h2>
+      </div>
+      <div class="vs-burst">VS</div>
+      <div class="vs-panel right">
+        <p class="small">Opponent</p>
+        <h2 id="vsOpponentName">Opponent</h2>
+      </div>
+    </div>
 
-      <div class="card" id="joinCard">
+    <main class="player-main">
+      <header class="player-hero">
+        <p class="hero-kicker">RPS Royale Arena</p>
+        <h1>Battle Controller</h1>
+      </header>
+
+      <div class="card arcade-card join-card" id="joinCard">
         <h2>Join Lobby</h2>
         <div class="row">
           <input id="name" placeholder="Nickname" maxlength="20" />
@@ -20,7 +35,7 @@
         <p id="joinError" class="error"></p>
       </div>
 
-      <div class="card">
+      <div class="card arcade-card status-card">
         <h2>Game</h2>
         <p id="identity" class="small">Not joined</p>
         <p id="state" class="badge">Waiting</p>
@@ -28,14 +43,25 @@
         <div id="message" class="message"></div>
       </div>
 
-      <div class="card">
+      <div class="card arcade-card battle-card">
         <h3>Current Match</h3>
         <p id="opponent">Opponent: -</p>
         <p id="score" class="small">Score: -</p>
-        <div class="row moves">
-          <button data-move="rock">Rock</button>
-          <button data-move="paper">Paper</button>
-          <button data-move="scissors">Scissors</button>
+        <div id="battleAnim" class="battle-anim">
+          <div id="fighterYou" class="fighter you">
+            <img id="battleYouImg" src="/assets/rock.svg" alt="Your move" />
+            <p class="small">You</p>
+          </div>
+          <div id="battleEffect" class="battle-effect">FIGHT</div>
+          <div id="fighterOpp" class="fighter opp">
+            <img id="battleOppImg" src="/assets/rock.svg" alt="Opponent move" />
+            <p class="small">Opponent</p>
+          </div>
+        </div>
+        <div class="row moves move-grid">
+          <button data-move="rock"><img src="/assets/rock.svg" alt="" /> Rock</button>
+          <button data-move="paper"><img src="/assets/paper.svg" alt="" /> Paper</button>
+          <button data-move="scissors"><img src="/assets/scissors.svg" alt="" /> Scissors</button>
         </div>
       </div>
     </main>
