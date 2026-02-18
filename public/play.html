@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Play | RPS Royale</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Player Screen</h1>
+
+      <div class="card" id="joinCard">
+        <h2>Join Lobby</h2>
+        <div class="row">
+          <input id="name" placeholder="Nickname" maxlength="20" />
+          <input id="code" placeholder="Code" maxlength="5" />
+          <button id="joinBtn" class="success">Join</button>
+        </div>
+        <p id="joinError" class="error"></p>
+      </div>
+
+      <div class="card">
+        <h2>Game</h2>
+        <p id="identity" class="small">Not joined</p>
+        <p id="state" class="badge">Waiting</p>
+        <p id="round" class="small">Round: -</p>
+        <div id="message" class="message"></div>
+      </div>
+
+      <div class="card">
+        <h3>Current Match</h3>
+        <p id="opponent">Opponent: -</p>
+        <p id="score" class="small">Score: -</p>
+        <div class="row moves">
+          <button data-move="rock">Rock</button>
+          <button data-move="paper">Paper</button>
+          <button data-move="scissors">Scissors</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/play.js"></script>
+  </body>
+</html>

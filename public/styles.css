@@ -1,0 +1,141 @@
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --muted: #8b949e;
+  --text: #e6edf3;
+  --accent: #2f81f7;
+  --accent-2: #3fb950;
+  --danger: #f85149;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #1f2937 0%, var(--bg) 45%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+.card {
+  background: color-mix(in srgb, var(--card) 92%, black 8%);
+  border: 1px solid #30363d;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button,
+input {
+  border-radius: 10px;
+  border: 1px solid #30363d;
+  padding: 10px 12px;
+  font-size: 15px;
+}
+
+input {
+  background: #0f141b;
+  color: var(--text);
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button.secondary {
+  background: #21262d;
+}
+
+button.success {
+  background: var(--accent-2);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #21262d;
+  color: var(--muted);
+}
+
+.big-code {
+  font-size: 44px;
+  letter-spacing: 0.18em;
+  font-weight: 800;
+}
+
+.list {
+  display: grid;
+  gap: 8px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  background: #0f141b;
+  border: 1px solid #30363d;
+}
+
+.small {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 10px;
+  background: #1f2a37;
+  border: 1px solid #30363d;
+  min-height: 44px;
+}
+
+.error {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.moves button {
+  min-width: 100px;
+}
+
+@media (max-width: 600px) {
+  .big-code {
+    font-size: 34px;
+    letter-spacing: 0.14em;
+  }
+}

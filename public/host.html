@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Host | RPS Royale</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Host Screen</h1>
+      <div class="card">
+        <div class="row">
+          <button id="createLobby" class="success">Create Lobby</button>
+          <button id="startGame">Start Tournament</button>
+        </div>
+        <p class="small">Players join at <b>/play</b> with this code:</p>
+        <div id="lobbyCode" class="big-code">-----</div>
+        <p id="hostError" class="error"></p>
+      </div>
+
+      <div class="card">
+        <h2>Status</h2>
+        <p id="phase" class="badge">Waiting</p>
+        <p id="round" class="small">Round: -</p>
+        <p id="champion"></p>
+      </div>
+
+      <div class="card">
+        <h2>Players</h2>
+        <div id="players" class="list"></div>
+      </div>
+
+      <div class="card">
+        <h2>Matches</h2>
+        <div id="matches" class="list"></div>
+      </div>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/host.js"></script>
+  </body>
+</html>
